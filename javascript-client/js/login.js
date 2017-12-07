@@ -38,9 +38,8 @@ $(document).ready(() => {
         $(".form-group").addClass("has-error");
       }
       else if (err){
-        console.log("BAd stuff happened")
+        console.log("Bad stuff happened")
       } else {
-        alert("Du blev log'et ind.")
         window.location.href = "my-page.html";
       }
     });

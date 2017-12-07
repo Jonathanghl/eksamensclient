@@ -27,12 +27,18 @@ const SDK = {
   },
   Quiz: {
 
-    findAll: (cb) => {
+    findAll: (id, cb) => {
       SDK.request({
         method: "GET",
-        url: "/quiz/1",
+        url: "/quiz/" + id,
 
-      }, cb);
+      }, (err, data) => {
+        if (err) return cb(err);
+
+        data = JSON.parse(data);
+
+        cb(null,data);
+      });
     },
     create: (data, cb) => {
       SDK.request({
@@ -95,7 +101,7 @@ const SDK = {
       return SDK.Storage.load("user");
     },
     logOut: () => {
-      SDK.Storage.remove("userId");
+      SDK.Storage.remove("userType");
       SDK.Storage.remove("user");
       window.location.href = "index.html";
     },
@@ -149,7 +155,7 @@ const SDK = {
         const currentUser = SDK.User.current();
         if (currentUser) {
           $(".navbar-right").html(`
-            <li><a href="my-page.html">Your orders</a></li>
+            <li><a href="my-page.html">Dine fag</a></li>
             <li><a href="#" id="logout-link">Logout</a></li>
           `);
         } else {

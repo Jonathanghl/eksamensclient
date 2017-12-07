@@ -16,16 +16,13 @@
     <div class="row" id="nav-container"></div>
 
     <div class="page-header">
-        <h1>Vælg quiz</h1>
+        <h3>Vælg fag</h3>
+
+        </div>
+    <div class="btn-group-vertical btn-block" role="group" id="ChooseQuizButtons">
+
+
     </div>
-
-    <div class="row" id="book-list">
-        <p></p>
-
-    </div>
-
-
-</div>
 
 
 
@@ -39,6 +36,24 @@
 <script src="lib/js/bootstrap.js"></script>
 <script src="js/sdk.js"></script>
 <script src="js/Quiz.js"></script>
+    <!-- Scriptet er inspireret af et jeg har fundet på
+https://stackoverflow.com/questions/33137525/redirect-user-if-not-logged-in-in-html-with-jquery-->
+    <script>
+        let user = SDK.Storage.load("user");
+        if (user == null) {
+            try {
+                window.stop();
+            }
+            catch (e) {
 
+                document.execCommand('Stop');
+            }
+            document.location.replace("login.html");
+        }
+    </script>
+
+
+
+        </div>
 </body>
 </html>
