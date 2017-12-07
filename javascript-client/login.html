@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <meta charset="UTF-8">
+    <title>Login - Ha. IT Exam Quiz 2017</title>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row" id="nav-container"></div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="page-header">
+                <h1>Login</h1>
+                <div id="load-test"></div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="inputUsername">Username</label>
+                <input type="username" class="form-control" id="inputUsername" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="inputPassword">Password</label>
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+            <button style="margin-bottom: 40px" class="btn btn-default" id="login-button">Login</button>
+            <!--Forsøger at lave modal -->
+            <button style="margin-bottom: 40px" class="btn-default" id="createUserBtn">Opret bruger</button>
+
+            <div id="createUserModal" class="modal" data-backdrop="false">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="close">&times;</span></button>
+                    <h2>Oprettelse af ny bruger</h2>
+                </div>
+                <div class="modal-body">
+
+                    <label class="control-label" for="inputCreateUserFirstname">Firstname</label>
+                    <input type="firstName" class="form-control" id="inputCreateUserFirstname" placeholder="Firstname">
+
+
+                    <label class="control-label" for="inputCreateUserLastname">Lastname</label>
+                    <input type="lastName" class="form-control" id="inputCreateUserLastname" placeholder="Lastname">
+
+
+                    <label class="control-label" for="inputCreateUserUsername">Username</label>
+                    <input type="username" class="form-control" id="inputCreateUserUsername" placeholder="Username">
+
+                    <label class="control-label" for="inputCreateUserPassword">Password</label>
+                    <input type="password" class="form-control" id="inputCreateUserPassword" placeholder="Password">
+
+
+                </div>
+                <div class="modal-footer">
+                    <button style="margin-bottom: 40px" class="createUser btn-default" id="finishCreateUserBtn">Opret bruger</button>
+                </div>
+            </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">EQ2016 ©</p>
+    </div>
+</footer>
+
+<script src="lib/js/jquery-3.2.1.js"></script>
+<script src="lib/js/bootstrap.js"></script>
+<script src="js/sdk.js"></script>
+<script src="js/login.js"></script>
+
+</body>
+</html>
