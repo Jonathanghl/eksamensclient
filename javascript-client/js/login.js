@@ -3,7 +3,6 @@ $(document).ready(() => {
   SDK.User.loadNav();
 
     $("#createUserBtn").click(() => {
-      console.log("Harro")
        $("#createUserModal").modal("toggle");
     });
 

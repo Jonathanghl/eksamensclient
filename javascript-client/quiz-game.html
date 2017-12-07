@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+
+    <div class="row" id="nav-container"></div>
+
+    <div class="page-header">
+        <h3>Tag quiz</h3>
+
+    </div>
+
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">EQ2016 ©</p>
+        </div>
+    </footer>
+
+    <script src="lib/js/jquery-3.2.1.js"></script>
+    <script src="lib/js/bootstrap.js"></script>
+    <script src="js/sdk.js"></script>
+    <script src="js/Quiz.js"></script>
+    <!-- Scriptet er inspireret af et jeg har fundet på
+https://stackoverflow.com/questions/33137525/redirect-user-if-not-logged-in-in-html-with-jquery-->
+    <script>
+        let user = SDK.Storage.load("user");
+        if (user == null) {
+            try {
+                window.stop();
+            }
+            catch (e) {
+
+                document.execCommand('Stop');
+            }
+            document.location.replace("login.html");
+        }
+    </script>
+
+
+
+</div>
+</body>
+</html>

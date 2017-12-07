@@ -150,6 +150,28 @@ const SDK = {
           });
       },
 
+      createAdmin: (username, password, firstname, lastname, cb) => {
+          SDK.request({
+              url: "/user",
+              method: "POST",
+              data: {
+
+                  username: username,
+                  password: password,
+                  firstName: firstname,
+                  lastName: lastname,
+                  type: 2
+              },
+
+          }, (err, data) => {
+
+              if (err) return cb(err);
+
+              cb(null, data);
+
+          });
+      },
+
     loadNav: (cb) => {
       $("#nav-container").load("nav.html", () => {
         const currentUser = SDK.User.current();
