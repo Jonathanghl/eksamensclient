@@ -97,12 +97,30 @@ const SDK = {
     findAll: (cb) => {
       SDK.request({method: "GET", url: "/user"}, cb);
     },
+
     current: () => {
-      return SDK.Storage.load("user");
+      return {
+            username: SDK.Storage.load("user"),
+
+                userId: SDK.Storage.load("userId"),
+
+                firstName: SDK.Storage.load("firstname"),
+
+                lastName: SDK.Storage.load("lastname"),
+
+                type: SDK.Storage.load("userType")
+
+        }
+
+
+
     },
     logOut: () => {
       SDK.Storage.remove("userType");
       SDK.Storage.remove("user");
+      SDK.Storage.remove("lastname");
+        SDK.Storage.remove("firstname");
+        SDK.Storage.remove("userId");
       window.location.href = "index.html";
     },
     login: (username, password, cb) => {
@@ -123,6 +141,9 @@ const SDK = {
         data = JSON.parse(data);
         SDK.Storage.persist("userType", data.type);
         SDK.Storage.persist("user", data.username);
+        SDK.Storage.persist("userId", data.userId),
+            SDK.Storage.persist("firstname", data.firstName),
+            SDK.Storage.persist("lastname", data.lastName),
 
         cb(null, data);
 
@@ -175,11 +196,12 @@ const SDK = {
     loadNav: (cb) => {
       $("#nav-container").load("nav.html", () => {
         const currentUser = SDK.User.current();
-        if (currentUser) {
+        if (currentUser.userId !== null) {
           $(".navbar-right").html(`
-            <li><a href="my-page.html">Dine fag</a></li>
             <li><a href="#" id="logout-link">Logout</a></li>
           `);
+          $(".navbar-left").append(`
+            <li><a href="my-page.html">Dine fag</a></li>`);
         } else {
           $(".navbar-right").html(`
             <li><a href="login.html">Log-in <span class="sr-only">(current)</span></a></li>

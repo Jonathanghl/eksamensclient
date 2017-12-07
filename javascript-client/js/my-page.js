@@ -3,6 +3,7 @@ $(document).ready(() => {
     SDK.User.loadNav();
     const currentUser = SDK.User.current();
     const $quizButtons = $("#QuizButtons")
+    const $welcomeMessage = $("#welcome-message")
 
 
 
@@ -26,6 +27,9 @@ $(document).ready(() => {
 
       });
 
+
+
+    $welcomeMessage.html(`<h1>Velkommen, ${currentUser.username}  </h1>`);
 
 
 
