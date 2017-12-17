@@ -63,13 +63,24 @@ const SDK = {
 
 
     Question: {
-        create: (data, cb) => {
+        create: (questionTitle, quizId, cb) => {
             SDK.request({
                 method: "POST",
                 url: "/question",
-                data: data,
-                headers: {authorization: SDK.Storage.load("tokenId")}
-            }, cb);
+                data: {
+                    quizId: quizId,
+                    questionTitle: questionTitle
+
+
+                },
+
+            }, (err, data) => {
+
+                if (err) return cb(err);
+
+                cb(null, data);
+
+            });
         },
 
         find: (id, cb) => {

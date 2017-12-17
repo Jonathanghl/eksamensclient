@@ -23,7 +23,8 @@
         </div>
     </div>
     <div id="deleteMyUserBtn"></div>
-    <button id="createQuizBtn"></button>
+    <button class="btn btn-default" id="createQuizBtn">Opret Quiz</button>
+    <button class="btn btn-default" id="createQuestionBtn">Tilføj spørgsmål til quiz</button>
     <div class="row">
         <div class="col-lg-2 img-container"></div>
         <div class="col-lg-10 profile-info"></div>
@@ -37,7 +38,7 @@
     </div>
 
 </div>
-
+<!--Her oprettes modalen der brugrs til at lave en quiz -->
 <div id="createQuizModal" class="modal" data-backdrop="false">
 <div class="modal-content">
     <div class="modal-header">
@@ -64,10 +65,35 @@
 </div>
 </div>
 
+
+<!--Her oprettes modalen der brugrs til at lave en spørgsmål -->
+<div id="createQuestionModal" class="modal" data-backdrop="false">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="close">&times;</span></button>
+            <h2>Oprettelse af nyt spørgsmål</h2>
+        </div>
+        <div class="modal-body">
+
+            <label class="control-label" for="inputCreateQuestionTitle">Spørgsmål</label>
+            <input type="quizTitle" class="form-control" id="inputCreateQuestionTitle" placeholder="Spørgsmål">
+
+
+            <label class="control-label" for="inputCreateQuestionQuizId">Quiz id</label>
+            <input type="quizId" class="form-control" id="inputCreateQuestionQuizId" placeholder="Quiz id">
+
+
+
+
+
+        </div>
+        <div class="modal-footer">
+            <button style="margin-bottom: 40px" class="btn btn-default" id="finishCreateQuestionBtn">Opret spørgsmål</button>
+        </div>
+    </div>
 </div>
 
-</div>
-</div>
+
 
 <footer class="footer">
     <div class="container">

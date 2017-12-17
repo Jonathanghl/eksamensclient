@@ -84,7 +84,27 @@ $(document).ready(() => {
 
     });
 
+    $("#createQuestionBtn").click(() => {
+        $("#createQuestionModal").modal("toggle");
+    });
 
+    $("#finishCreateQuestionBtn").click(()=> {
+
+        const QuestionTitle = $("#inputCreateQuestionTitle").val();
+        const QuizId = $("#inputCreateQuestionQuizId").val();
+
+
+        SDK.Question.create(QuestionTitle,QuizId, (err, data) => {
+            if (err){
+                console.log("Det lykkedes ikke at oprette spørgsmålet ")
+
+            }
+            else {
+                alert("Spørgsmålet blev oprettet!")
+            }
+        });
+
+    });
 
 
 
