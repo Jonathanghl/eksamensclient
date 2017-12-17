@@ -19,7 +19,7 @@ $(document).ready(() => {
                 let id = e.target.getAttribute('data-id')
                 if (id !== undefined) {
                     SDK.Storage.persist('QuizId', id);
-                    window.location.href = "Quiz.html";
+                    window.location.href = "quiz-game.html";
 
                 }
             })

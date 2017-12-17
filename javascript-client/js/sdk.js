@@ -50,6 +50,34 @@ const SDK = {
     }
   },
 
+
+    Question: {
+        create: (data, cb) => {
+            SDK.request({
+                method: "POST",
+                url: "/question",
+                data: data,
+                headers: {authorization: SDK.Storage.load("tokenId")}
+            }, cb);
+        },
+
+        find: (id, cb) => {
+            SDK.request({
+                method: "GET",
+                url: "/question/" + id,
+
+            }, (err, data) => {
+                if (err) return cb(err);
+
+                data = JSON.parse(data);
+
+                cb(null, data);
+            });
+        },
+
+    },
+
+
   Course: {
     findAll: (cb) => {
         SDK.request({
@@ -70,29 +98,22 @@ const SDK = {
 
 
   Choice: {
-    findAll: (cb) => {
-      SDK.request({method: "GET", url: "/choice"}, cb);
-    }
+      findAll: (id, cb) => {
+          SDK.request({
+              method: "GET",
+              url: "/choice/" + id,
+
+          }, (err, data) => {
+              if (err) return cb(err);
+
+              data = JSON.parse(data);
+
+              cb(null, data);
+          });
+      },
   },
-  Question: {
-    create: (data, cb) => {
-      SDK.request({
-        method: "POST",
-        url: "/question",
-        data: data,
-        headers: {authorization: SDK.Storage.load("tokenId")}
-      }, cb);
-    },
-    findMine: (cb) => {
-      SDK.request({
-        method: "GET",
-        url: "/orders/" + SDK.User.current().id + "/allorders",
-        headers: {
-          authorization: SDK.Storage.load("tokenId")
-        }
-      }, cb);
-    }
-  },
+
+
   User: {
     findAll: (cb) => {
       SDK.request({method: "GET", url: "/user"}, cb);
@@ -212,6 +233,8 @@ const SDK = {
       });
     }
   },
+
+
   Storage: {
     prefix: "ExamQuizSDK",
     persist: (key, value) => {
