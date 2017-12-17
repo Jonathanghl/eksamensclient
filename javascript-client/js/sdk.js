@@ -27,27 +27,38 @@ const SDK = {
   },
   Quiz: {
 
-    findAll: (id, cb) => {
-      SDK.request({
-        method: "GET",
-        url: "/quiz/" + id,
+      findAll: (id, cb) => {
+          SDK.request({
+              method: "GET",
+              url: "/quiz/" + id,
 
-      }, (err, data) => {
-        if (err) return cb(err);
+          }, (err, data) => {
+              if (err) return cb(err);
 
-        data = JSON.parse(data);
+              data = JSON.parse(data);
 
-        cb(null,data);
-      });
-    },
-    create: (data, cb) => {
-      SDK.request({
-        method: "POST",
-        url: "/quiz",
-        data: data,
+              cb(null, data);
+          });
+      },
+      create: (quizTitle, courseId, cb) => {
+          SDK.request({
+              method: "POST",
+              url: "/quiz",
+              data: {
 
-      }, cb);
-    }
+                  quizTitle: quizTitle,
+                  courseId: courseId
+
+              },
+
+          }, (err, data) => {
+
+              if (err) return cb(err);
+
+              cb(null, data);
+
+          });
+      },
   },
 
 

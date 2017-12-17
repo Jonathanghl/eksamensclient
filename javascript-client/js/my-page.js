@@ -6,7 +6,7 @@ $(document).ready(() => {
     const $welcomeMessage = $("#welcome-message")
     const $deleteUser = $("#deleteMyUserBtn")
 
-
+    $welcomeMessage.html(`<h1>Velkommen, ${currentUser.username}  </h1>`);
 
 
 
@@ -61,7 +61,30 @@ $(document).ready(() => {
 })
 
 
-    $welcomeMessage.html(`<h1>Velkommen, ${currentUser.username}  </h1>`);
+    $("#createQuizBtn").click(() => {
+        $("#createQuizModal").modal("toggle");
+    });
+
+
+    $("#finishCreateQuizBtn").click(()=> {
+
+        const QuizTitle = $("#inputCreateQuizTitle").val();
+        const CourseId = $("#inputCreateQuizCourseId").val();
+
+
+        SDK.Quiz.create(QuizTitle,CourseId, (err, data) => {
+            if (err){
+                console.log("Det lykkedes ikke at oprette quizzen ")
+
+            }
+            else {
+                alert("Quizzen blev oprettet!")
+            }
+        });
+
+    });
+
+
 
 
 

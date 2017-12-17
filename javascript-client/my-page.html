@@ -23,6 +23,7 @@
         </div>
     </div>
     <div id="deleteMyUserBtn"></div>
+    <button id="createQuizBtn"></button>
     <div class="row">
         <div class="col-lg-2 img-container"></div>
         <div class="col-lg-10 profile-info"></div>
@@ -35,6 +36,37 @@
         </div>
     </div>
 
+</div>
+
+<div id="createQuizModal" class="modal" data-backdrop="false">
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="close">&times;</span></button>
+        <h2>Oprettelse af ny quiz</h2>
+    </div>
+    <div class="modal-body">
+
+        <label class="control-label" for="inputCreateQuizTitle">Quiz navn</label>
+        <input type="quizTitle" class="form-control" id="inputCreateQuizTitle" placeholder="Quiz navn">
+
+
+        <label class="control-label" for="inputCreateQuizCourseId">Fag id</label>
+        <input type="quizId" class="form-control" id="inputCreateQuizCourseId" placeholder="Fag id">
+
+
+
+
+
+    </div>
+    <div class="modal-footer">
+        <button style="margin-bottom: 40px" class="btn btn-default" id="finishCreateQuizBtn">Opret quiz</button>
+    </div>
+</div>
+</div>
+
+</div>
+
+</div>
 </div>
 
 <footer class="footer">
