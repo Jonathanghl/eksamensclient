@@ -115,6 +115,20 @@ const SDK = {
 
 
   User: {
+    delete: (id, cb) => {
+          SDK.request({
+                  method: "DELETE",
+                  url: "/user/" + id,
+
+              },
+              (err) => {
+
+                  if (err) return cb(err);
+                  cb(null);
+
+              });
+      },
+
     findAll: (cb) => {
       SDK.request({method: "GET", url: "/user"}, cb);
     },
