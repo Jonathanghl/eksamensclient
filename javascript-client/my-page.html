@@ -147,6 +147,8 @@
         <div class="modal-footer">
             <button style="margin-bottom: 40px" class="createUser btn-default" id="finishCreateAdminBtn">Opret admin bruger</button>
         </div>
+    </div>
+</div>
 
 
 <footer class="footer">
@@ -163,8 +165,8 @@
 <!-- Scriptet er inspireret af et jeg har fundet på
 https://stackoverflow.com/questions/33137525/redirect-user-if-not-logged-in-in-html-with-jquery-->
 <script>
-    let user = SDK.Storage.load("user");
-    if (user == null) {
+    let user = SDK.Storage.load("userType");
+    if (user !==2) {
         try {
             window.stop();
         }
