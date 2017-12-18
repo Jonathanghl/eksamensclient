@@ -53,6 +53,7 @@ $(document).ready(() => {
                 SDK.Storage.remove("userType");
                 SDK.Storage.remove("userId");
                 SDK.Storage.remove("user");
+                SDK.Storage.remove("watchQuizCourseId");
                 window.location.href = "index.html";
             }
         })
@@ -104,6 +105,36 @@ $(document).ready(() => {
             }
         });
 
+    });
+
+    $("#createChoiceBtn").click(() => {
+        $("#createChoiceModal").modal("toggle");
+    });
+
+    $("#finishCreateChoiceBtn").click(()=> {
+
+        const choiceTitle = $("#inputCreateChoiceTitle").val();
+        const questionId = $("#inputCreateChoiceQuestionId").val();
+        const answer = $("#inputCreateChoiceIsAnswer").val();
+
+
+        SDK.Choice.create(choiceTitle,questionId, answer, (err, data) => {
+            if (err){
+                console.log("Det lykkedes ikke at oprette spørgsmålet ")
+
+            }
+            else {
+                alert("Spørgsmålet blev oprettet!")
+            }
+        });
+
+    });
+
+    $("#watchUsersBtn").click(() => {
+       window.location.href = "AdminWatchUsers.html";
+    });
+    $("#watchQuizBtn").click(() => {
+        window.location.href = "courseForQuiz.html";
     });
 
 

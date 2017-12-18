@@ -59,7 +59,24 @@ const SDK = {
 
           });
       },
+
+      delete: (id, cb) => {
+          SDK.request({
+                  method: "DELETE",
+                  url: "/quiz/" + id,
+
+              },
+              (err) => {
+
+                  if (err) return cb(err);
+                  cb(null);
+
+              });
+      },
   },
+
+
+
 
 
     Question: {
@@ -120,6 +137,27 @@ const SDK = {
 
 
   Choice: {
+
+      create: (choiceTitle, questionId, answer, cb) => {
+          SDK.request({
+              method: "POST",
+              url: "/choice",
+              data: {
+                  questionId: questionId,
+                  choiceTitle: choiceTitle,
+                  answer: answer
+
+
+              },
+
+          }, (err, data) => {
+
+              if (err) return cb(err);
+
+              cb(null, data);
+
+          });
+      },
       findAll: (id, cb) => {
           SDK.request({
               method: "GET",
@@ -173,11 +211,17 @@ const SDK = {
 
     },
     logOut: () => {
-      SDK.Storage.remove("userType");
-      SDK.Storage.remove("user");
-      SDK.Storage.remove("lastname");
+        SDK.Storage.remove("QuestionId");
+        SDK.Storage.remove("QuestionTitle");
+        SDK.Storage.remove("QuizId");
+        SDK.Storage.remove("courseId");
+        SDK.Storage.remove("deleteUserId");
         SDK.Storage.remove("firstname");
+        SDK.Storage.remove("lastname");
+        SDK.Storage.remove("userType");
         SDK.Storage.remove("userId");
+        SDK.Storage.remove("user");
+        SDK.Storage.remove("watchQuizCourseId");
       window.location.href = "index.html";
     },
     login: (username, password, cb) => {

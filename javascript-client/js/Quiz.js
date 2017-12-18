@@ -4,8 +4,7 @@ $(document).ready(() => {
 
     SDK.User.loadNav();
 
-    // i nedenstående kode printes alle bogtitler ud på den givne side.
-    // Tilhørende html fil er Quiz.html
+
 
     const $chooseQuizButtons = $("#ChooseQuizButtons");
 

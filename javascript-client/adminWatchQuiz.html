@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <meta charset="UTF-8">
+    <title>Alle quiz' - Exam Quiz</title>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row" id="nav-container"></div>
+
+    <table class = "table">
+        <thead>
+        <tr>
+            <th>Quiz ID</th>
+            <th>Quiz navn</th>
+            <th>Fag ID</th>
+        </tr>
+        </thead>
+        <tbody id="quiz-tbody">
+
+        </tbody>
+    </table>
+    <button class="btn btn-default" id="deleteQuizBtn"> Slet quiz
+    </button>
+    <!--Modal til at slette quiz -->
+    <div id="deleteQuizModal" class="modal" data-backdrop="false">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="close">&times;</span></button>
+                <h2>Slet en quiz</h2>
+            </div>
+            <div class="modal-body">
+
+                <label class="control-label" for="inputDeleteQuizId">Quiz navn</label>
+                <input type="quizId" class="form-control" id="inputDeleteQuizId" placeholder="Quiz ID">
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button style="margin-bottom: 40px" class="btn btn-default" id="finishDeleteQuizBtn">Slet quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="lib/js/jquery-3.2.1.js"></script>
+    <script src="lib/js/bootstrap.js"></script>
+    <script src="js/sdk.js"></script>
+    <script src="js/adminWatchQuiz.js"></script>
+    <!-- Scriptet er inspireret af et jeg har fundet på
+    https://stackoverflow.com/questions/33137525/redirect-user-if-not-logged-in-in-html-with-jquery-->
+    <script>
+        let user = SDK.Storage.load("userType");
+        if (user !==2) {
+            try {
+                window.stop();
+            }
+            catch (e) {
+
+                document.execCommand('Stop');
+            }
+            document.location.replace("login.html");
+        }
+    </script>
+
+
+</div>
+</body>
+</html>

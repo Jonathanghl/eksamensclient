@@ -82,6 +82,19 @@
 <script src="lib/js/bootstrap.js"></script>
 <script src="js/sdk.js"></script>
 <script src="js/login.js"></script>
+<script>
+    let user = SDK.Storage.load("user");
+    if (user !== null) {
+        try {
+            window.stop();
+        }
+        catch (e) {
+
+            document.execCommand('Stop');
+        }
+        document.location.replace("my-page.html");
+    }
+</script>
 
 </body>
 </html>

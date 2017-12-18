@@ -25,6 +25,9 @@
     <div id="deleteMyUserBtn"></div>
     <button class="btn btn-default" id="createQuizBtn">Opret Quiz</button>
     <button class="btn btn-default" id="createQuestionBtn">Tilføj spørgsmål til quiz</button>
+    <button class="btn btn-default" id="createChoiceBtn">Tilføj svarmulighed til spørgsmål</button>
+    <button class="btn btn-default" id="watchUsersBtn">Se brugere</button>
+    <button class="btn btn-default" id="watchQuizBtn">Se quiz'</button>
     <div class="row">
         <div class="col-lg-2 img-container"></div>
         <div class="col-lg-10 profile-info"></div>
@@ -52,11 +55,7 @@
 
 
         <label class="control-label" for="inputCreateQuizCourseId">Fag id</label>
-        <input type="quizId" class="form-control" id="inputCreateQuizCourseId" placeholder="Fag id">
-
-
-
-
+        <input type="courseId" class="form-control" id="inputCreateQuizCourseId" placeholder="Fag id">
 
     </div>
     <div class="modal-footer">
@@ -76,7 +75,7 @@
         <div class="modal-body">
 
             <label class="control-label" for="inputCreateQuestionTitle">Spørgsmål</label>
-            <input type="quizTitle" class="form-control" id="inputCreateQuestionTitle" placeholder="Spørgsmål">
+            <input type="questionTitle" class="form-control" id="inputCreateQuestionTitle" placeholder="Spørgsmål">
 
 
             <label class="control-label" for="inputCreateQuestionQuizId">Quiz id</label>
@@ -93,6 +92,31 @@
     </div>
 </div>
 
+<!--Her oprettes modalen der bruges til at lave en svarmulighed -->
+<div id="createChoiceModal" class="modal" data-backdrop="false">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="close">&times;</span></button>
+            <h2>Oprettelse af ny svarmulighed</h2>
+        </div>
+        <div class="modal-body">
+
+            <label class="control-label" for="inputCreateChoiceTitle">Spørgsmål</label>
+            <input type="choiceTitle" class="form-control" id="inputCreateChoiceTitle" placeholder="Svarmulighed">
+
+
+            <label class="control-label" for="inputCreateChoiceQuestionId">Quiz id</label>
+            <input type="questionId" class="form-control" id="inputCreateChoiceQuestionId" placeholder="Spørgsmåls id">
+
+
+            <label class="control-label" for="inputCreateChoiceIsAnswer">Korrekt svar?</label>
+            <input type="Answer" class="form-control" id="inputCreateChoiceIsAnswer" placeholder="Er svaret korrekt? 1 for ja 0 for nej">
+        </div>
+        <div class="modal-footer">
+            <button style="margin-bottom: 40px" class="btn btn-default" id="finishCreateChoiceBtn">Opret spørgsmål</button>
+        </div>
+    </div>
+</div>
 
 
 <footer class="footer">
