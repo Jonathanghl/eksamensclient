@@ -299,13 +299,16 @@ const SDK = {
         const currentUser = SDK.User.current();
         if (currentUser.userId !== null) {
           $(".navbar-right").html(`
-            <li><a href="#" id="logout-link">Logout</a></li>
+            <li><a href="#" id="logout-link">Log ud</a></li>
           `);
-          $(".navbar-left").append(`
-            <li><a href="my-page.html">Dine fag</a></li>`);
+          if (currentUser.type == 2){
+            $(".navbar-left").append(`
+            <li><a href="my-page.html">Dine fag</a></li>`);}
+            else {$(".navbar-left").append(`
+            <li><a href="courseForQuiz.html">Dine fag</a></li>`);}
         } else {
           $(".navbar-right").html(`
-            <li><a href="login.html">Log-in <span class="sr-only">(current)</span></a></li>
+            <li><a href="login.html">Log ind <span class="sr-only">(current)</span></a></li>
           `);
         }
         $("#logout-link").click(() => SDK.User.logOut());

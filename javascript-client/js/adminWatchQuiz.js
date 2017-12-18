@@ -8,7 +8,7 @@ $(document).ready(() => {
 
     quizbody.html("");
 
-    let quizId = SDK.Storage.load("watchQuizCourseId");
+    let quizId = SDK.Storage.load("courseId");
     SDK.Quiz.findAll(quizId, (err, quizs) => {
 
         quizs.forEach(quiz => {

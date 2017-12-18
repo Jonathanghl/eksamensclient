@@ -4,7 +4,7 @@ $(document).ready(() => {
     const currentUser = SDK.User.current();
     const $quizButtons = $("#QuizButtons")
     const $welcomeMessage = $("#welcome-message")
-    const $deleteUser = $("#deleteMyUserBtn")
+    const $deleteAdmin = $("#deleteMyAdminBtn")
 
     $welcomeMessage.html(`<h1>Velkommen, ${currentUser.username}  </h1>`);
 
@@ -19,7 +19,7 @@ $(document).ready(() => {
           let id = e.target.getAttribute('data-id')
             if(id !== undefined) {
                 SDK.Storage.persist('courseId', id);
-                window.location.href = "Quiz.html";
+                window.location.href = "adminWatchQuiz.html";
 
             }
           })
@@ -28,10 +28,10 @@ $(document).ready(() => {
 
       });
 
-    $deleteUser.append(`
+    $deleteAdmin.append(`
     <button class= "btn btn-default" data-id=${currentUser.userId}> Slet bruger </button> `)
 
-    $deleteUser.click((e)=>{
+    $deleteAdmin.click((e)=>{
         let dltId = e.target.getAttribute('data-id')
 
         SDK.Storage.persist('deleteUserId', dltId);
@@ -133,8 +133,28 @@ $(document).ready(() => {
     $("#watchUsersBtn").click(() => {
        window.location.href = "AdminWatchUsers.html";
     });
-    $("#watchQuizBtn").click(() => {
-        window.location.href = "courseForQuiz.html";
+
+    $("#createAdminBtn").click(() => {
+        $("#createAdminModal").modal("toggle");
+    });
+
+    $("#finishCreateAdminBtn").click(()=> {
+
+        const username = $("#inputCreateAdminUsername").val();
+        const password = $("#inputCreateAdminPassword").val();
+        const firstname = $("#inputCreateAdminFirstname").val();
+        const lastname = $("#inputCreateAdminLastname").val();
+
+        SDK.User.createAdmin(username,password,firstname,lastname, (err, data) => {
+            if (err){
+                console.log("Det lykkedes ikke at oprette administratoren ")
+
+            }
+            else {
+                alert("Administratoren blev oprettet!")
+            }
+        });
+
     });
 
 

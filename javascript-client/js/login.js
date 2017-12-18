@@ -37,12 +37,16 @@ $(document).ready(() => {
         $(".form-group").addClass("has-error");
       }
       else if (err){
-        console.log("Bad stuff happened")
+        window.alert("Forkert brugernavn eller kodeord")
       } else {
+        if (SDK.Storage.load('userType') == 2) {
         window.location.href = "my-page.html";
       }
+      else
+      { window.location.href = "courseForQuiz.html";
+      }}
     });
 
-  });
+  })
 
 });

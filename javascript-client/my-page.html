@@ -22,18 +22,18 @@
             <div class="page-header" id="welcome-message">  </div>
         </div>
     </div>
-    <div id="deleteMyUserBtn"></div>
+    <div id="deleteMyAdminBtn"></div>
     <button class="btn btn-default" id="createQuizBtn">Opret Quiz</button>
     <button class="btn btn-default" id="createQuestionBtn">Tilføj spørgsmål til quiz</button>
     <button class="btn btn-default" id="createChoiceBtn">Tilføj svarmulighed til spørgsmål</button>
     <button class="btn btn-default" id="watchUsersBtn">Se brugere</button>
-    <button class="btn btn-default" id="watchQuizBtn">Se quiz'</button>
+    <button class="btn btn-default" id="createAdminBtn">Opret admin</button>
     <div class="row">
         <div class="col-lg-2 img-container"></div>
         <div class="col-lg-10 profile-info"></div>
         <div class="col-lg-12">
 
-            <h3>Vælg fag</h3>
+            <h3>Vælg fag for at se og slette quiz</h3>
             <div class="btn-group-vertical btn-block" role="group" id="QuizButtons">
 
             </div>
@@ -117,6 +117,36 @@
         </div>
     </div>
 </div>
+
+<!--modal til oprettelse af Admin, opbygningen fundet på stackoverflow -->
+
+<div id="createAdminModal" class="modal" data-backdrop="false">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="close">&times;</span></button>
+            <h2>Oprettelse af ny admin bruger</h2>
+        </div>
+        <div class="modal-body">
+
+            <label class="control-label" for="inputCreateAdminFirstname">Firstname</label>
+            <input type="firstName" class="form-control" id="inputCreateAdminFirstname" placeholder="Firstname">
+
+
+            <label class="control-label" for="inputCreateAdminLastname">Lastname</label>
+            <input type="lastName" class="form-control" id="inputCreateAdminLastname" placeholder="Lastname">
+
+
+            <label class="control-label" for="inputCreateAdminUsername">Username</label>
+            <input type="username" class="form-control" id="inputCreateAdminUsername" placeholder="Username">
+
+            <label class="control-label" for="inputCreateAdminPassword">Password</label>
+            <input type="password" class="form-control" id="inputCreateAdminPassword" placeholder="Password">
+
+
+        </div>
+        <div class="modal-footer">
+            <button style="margin-bottom: 40px" class="createUser btn-default" id="finishCreateAdminBtn">Opret admin bruger</button>
+        </div>
 
 
 <footer class="footer">
