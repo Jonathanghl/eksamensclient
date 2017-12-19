@@ -17,7 +17,7 @@ $(document).ready(() => {
                 let id = e.target.getAttribute('data-id')
                 if (id !== undefined) {
                     SDK.Storage.persist('watchQuizCourseId', id);
-                    window.location.href = "quiz-game.html";
+                    window.location.href = "Quiz.html";
 
                 }
             })

@@ -7,23 +7,9 @@ dd {
     margin-bottom: 10px;
 }
 
-.book-container .panel-body {
-    min-height: 242px;
-}
-.book-container img {
-    height: 120px;
-}
-.book-container .price-label {
-    font-size: 1.4em;
-    font-weight: bold;
-}
-
-.book-container .price-label p {
-    margin: 4px 0 0 0;
-}
 
 
-/* The Modal (background) */
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -37,7 +23,6 @@ dd {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
@@ -46,7 +31,6 @@ dd {
     width: 80%; /* Could be more or less, depending on screen size */
 }
 
-/* The Close Button */
 .close {
     color: #aaa;
     float: right;

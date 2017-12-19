@@ -50,6 +50,17 @@ https://stackoverflow.com/questions/33137525/redirect-user-if-not-logged-in-in-h
             }
             document.location.replace("login.html");
         }
+        else if(SDK.Storage.load('watchQuizCourseId')== null) {try {
+            window.stop();
+        }
+        catch (e) {
+
+            document.execCommand('Stop');
+        }
+            document.location.replace("courseForQuiz.html");
+
+
+        }
     </script>
 
 

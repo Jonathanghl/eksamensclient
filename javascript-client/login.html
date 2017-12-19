@@ -84,7 +84,7 @@
 <script src="js/login.js"></script>
 <script>
     let user = SDK.Storage.load("userType");
-    if (user !== 1) {
+    if (user == 2) {
         try {
             window.stop();
         }
@@ -94,7 +94,7 @@
         }
         document.location.replace("my-page.html");
     }
-    else { try {
+    else if (user == 1) { try {
         window.stop();
     }
     catch (e) {
@@ -102,6 +102,7 @@
         document.execCommand('Stop');
     }
         document.location.replace("courseForQuiz.html");}
+
 </script>
 
 </body>

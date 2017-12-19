@@ -1,6 +1,6 @@
 $(document).ready(() => {
 
-  let courseId = SDK.Storage.load("courseId");
+  let courseId = SDK.Storage.load("watchQuizCourseId");
 
     SDK.User.loadNav();
 
