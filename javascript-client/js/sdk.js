@@ -10,7 +10,7 @@ const SDK = {
       dataType: "json",
       data: JSON.stringify(options.data),
       success: (data, status, xhr) => {
-        cb(null, data, status, xhr);
+        cb(null, SDK.encrypt(data), status, xhr);
       },
       error: (xhr, status, errorThrown) => {
         cb({xhr: xhr, status: status, error: errorThrown});
@@ -329,7 +329,7 @@ const SDK = {
   },
 
 
-    /*encrypt: (encrypt) => {
+    encrypt: (encrypt) => {
         if (encrypt !== undefined && encrypt.length !== 0) {
             //Encrypt key
             const key = ['K', 'O', 'C', 'H'];
@@ -341,21 +341,9 @@ const SDK = {
         } else {
             return encrypt;
         }
-    },*/
+    },
 
-    //Denne metode bruges til at decryptere data fra  serveren
-    /*decrypt: (decryption) => {
-        if (decryption !== undefined && decryption.length !== 0) {
-            const decryptionKey = ['K', 'O', 'C', 'H'];
-            let decrypted = "";
-            for (let i = 0; i < decryption.length; i++) {
-                decrypted += (String.fromCharCode((decryption.charAt(i)).charCodeAt(0) ^ (decryptionKey[i % decryptionKey.length]).charCodeAt(0)))
-            }
-            return decrypted;
-        } else {
-            return decryption;
-        }
-    },*/
+
 
 
 
