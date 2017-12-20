@@ -54,7 +54,7 @@ $(document).ready(() => {
                 SDK.Storage.remove("userId");
                 SDK.Storage.remove("user");
                 SDK.Storage.remove("watchQuizCourseId");
-                window.location.href = "index.html";
+                window.location.href = "login.html";
             }
         })
 

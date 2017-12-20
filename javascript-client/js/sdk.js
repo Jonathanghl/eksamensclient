@@ -2,17 +2,10 @@ const SDK = {
   serverURL: "http://localhost:8080/api",
   request: (options, cb) => {
 
-    let headers = {};
-    if (options.headers) {
-      Object.keys(options.headers).forEach((h) => {
-        headers[h] = (typeof options.headers[h] === 'object') ? JSON.stringify(options.headers[h]) : options.headers[h];
-      });
-    }
 
     $.ajax({
       url: SDK.serverURL + options.url,
       method: options.method,
-      headers: headers,
       contentType: "application/json",
       dataType: "json",
       data: JSON.stringify(options.data),
@@ -222,7 +215,7 @@ const SDK = {
         SDK.Storage.remove("userId");
         SDK.Storage.remove("user");
         SDK.Storage.remove("watchQuizCourseId");
-      window.location.href = "index.html";
+      window.location.href = "login.html";
     },
     login: (username, password, cb) => {
       SDK.request({
@@ -236,10 +229,8 @@ const SDK = {
 
       }, (err, data) => {
 
-        //On login-error
         if (err) return cb(err);
-
-        data = JSON.parse(data);
+          data = JSON.parse(data);
         SDK.Storage.persist("userType", data.type);
         SDK.Storage.persist("user", data.username);
         SDK.Storage.persist("userId", data.userId),
@@ -335,5 +326,38 @@ const SDK = {
     remove: (key) => {
       window.localStorage.removeItem(SDK.Storage.prefix + key);
     }
-  }
+  },
+
+
+    /*encrypt: (encrypt) => {
+        if (encrypt !== undefined && encrypt.length !== 0) {
+            //Encrypt key
+            const key = ['K', 'O', 'C', 'H'];
+            let isEncrypted = "";
+            for (let i = 0; i < encrypt.length; i++) {
+                isEncrypted += (String.fromCharCode((encrypt.charAt(i)).charCodeAt(0) ^ (key[i % key.length]).charCodeAt(0)))
+            }
+            return isEncrypted;
+        } else {
+            return encrypt;
+        }
+    },*/
+
+    //Denne metode bruges til at decryptere data fra  serveren
+    /*decrypt: (decryption) => {
+        if (decryption !== undefined && decryption.length !== 0) {
+            const decryptionKey = ['K', 'O', 'C', 'H'];
+            let decrypted = "";
+            for (let i = 0; i < decryption.length; i++) {
+                decrypted += (String.fromCharCode((decryption.charAt(i)).charCodeAt(0) ^ (decryptionKey[i % decryptionKey.length]).charCodeAt(0)))
+            }
+            return decrypted;
+        } else {
+            return decryption;
+        }
+    },*/
+
+
+
+
 };

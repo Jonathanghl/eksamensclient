@@ -45,8 +45,8 @@ $SendChoices.click((e) => {
     let check = document.getElementById("q-tbody").getElementsByTagName("input");
     let corAnswers = 0;
 
-    for(let i = 0; i < check.length; i++) {
-        if (check[i].checked && check[i].value == 1) {
+    for(let e = 0; e < check.length; e++) {
+        if (check[e].checked && check[e].value == 1) {
             corAnswers++;}
     }
     window.alert("Du har "+corAnswers+" rigtige svar, ud af " +totAnswers);
