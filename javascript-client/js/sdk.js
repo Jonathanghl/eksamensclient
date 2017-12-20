@@ -10,7 +10,7 @@ const SDK = {
       dataType: "json",
       data: JSON.stringify(options.data),
       success: (data, status, xhr) => {
-        cb(null, SDK.encrypt(data), status, xhr);
+        cb(null, data, status, xhr);
       },
       error: (xhr, status, errorThrown) => {
         cb({xhr: xhr, status: status, error: errorThrown});
