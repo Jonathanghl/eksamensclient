@@ -27,7 +27,9 @@ $(document).ready(() => {
 
     });
 
-    /*Delete user knap, som fungerer på samme måde som delete admin*/
+    /*Delete user knap, som fungerer på samme måde som delete admin
+    * Laver en knap som indeholder brugerens id. Vi laver e SDK kald når der klikkes, og sletter med id'et
+    * fra knappen*/
     $deleteUser.append(`
     <button class= "btn btn-default" data-id=${currentUser.userId}> Slet bruger </button> `)
 

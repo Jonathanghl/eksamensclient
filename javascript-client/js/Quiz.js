@@ -9,7 +9,7 @@ $(document).ready(() => {
 
 
     const $chooseQuizButtons = $("#ChooseQuizButtons");
-
+/*SDK kald om at finde alle de quiz'er der passer til fagId'et i local storage*/
 
     SDK.Quiz.findAll(courseId, (err, quizs) => {
 

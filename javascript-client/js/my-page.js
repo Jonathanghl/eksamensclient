@@ -68,7 +68,7 @@ $(document).ready(() => {
 })
 
 /*Alle disse clickhandlers herunder bruges til at oprette alle vores objekter.
-* Jeg gør brug af modals for ui'et. Den første knap åbner modal'en. Den næste gemme
+* Jeg gør brug af modals for ui'et. Den første knap åbner modal'en. Den næste gemmer
 * værdienre fra labels og oprettet objekter med dem.*/
 
     $("#createQuizBtn").click(() => {
