@@ -6,7 +6,6 @@ $(document).ready(() => {
 
     const $Qtbody = $("#q-tbody");
     const $SendChoices = $("#sendChoices");
-    const $quizName = $("#quizName")
     let quizId = SDK.Storage.load('QuizId');
     let totAnswers = 0;
 
