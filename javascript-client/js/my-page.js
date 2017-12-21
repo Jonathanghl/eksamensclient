@@ -1,5 +1,7 @@
 $(document).ready(() => {
 
+    /*Admin forside. Her kan administrator tilgå alle sine respektive funktioner*/
+
     SDK.User.loadNav();
     const currentUser = SDK.User.current();
     const $quizButtons = $("#QuizButtons")
@@ -8,7 +10,8 @@ $(document).ready(() => {
 
     $welcomeMessage.html(`<h1>Velkommen, ${currentUser.username}  </h1>`);
 
-
+    /*Printer fag ud og gør så man kan klikke sig videre fra dem, og hen til quizlister.
+    * Dette gøres vha. courseId som vi gemmer i vores lokal storage*/
 
     SDK.Course.findAll((err, courses) => {
       if (err)  throw err;
@@ -27,6 +30,9 @@ $(document).ready(() => {
         });
 
       });
+
+    /*Slet admin funktion. Fungerer ligesom slet bruger.
+    * Tømmer til sidst local storage og sender dig til login side*/
 
     $deleteAdmin.append(`
     <button class= "btn btn-default" data-id=${currentUser.userId}> Slet bruger </button> `)
@@ -61,6 +67,9 @@ $(document).ready(() => {
     }
 })
 
+/*Alle disse clickhandlers herunder bruges til at oprette alle vores objekter.
+* Jeg gør brug af modals for ui'et. Den første knap åbner modal'en. Den næste gemme
+* værdienre fra labels og oprettet objekter med dem.*/
 
     $("#createQuizBtn").click(() => {
         $("#createQuizModal").modal("toggle");

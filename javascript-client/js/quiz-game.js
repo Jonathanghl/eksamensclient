@@ -1,5 +1,6 @@
 $(document).ready(() => {
 
+/*Tag quiz klasse*/
 
     SDK.User.loadNav();
 
@@ -8,6 +9,10 @@ $(document).ready(() => {
     const $SendChoices = $("#sendChoices");
     let quizId = SDK.Storage.load('QuizId');
     let totAnswers = 0;
+
+    /*Her loades spørgsmål ind i siden, og for hvert spørgsmål bruges getChoice metoden til at appende
+    * alle choices under*/
+
 
     SDK.Question.find(quizId, (err, questions) => {
         if (err) throw err;
@@ -24,7 +29,8 @@ $(document).ready(() => {
 
     });
 
-
+/*GetCHoice metoden der finder de rigtige choices vha questionId
+og appender vores choices ift questions*/
 
      function getChoice (qId) {
         SDK.Choice.findAll(qId, (err, choice) => {
@@ -39,6 +45,9 @@ $(document).ready(() => {
             });
         });
     }
+
+    /*Clickhandler til vores tjek svar knap. Bruger variablene corAnswers og totAnswers til at oplyse brugerne om
+    * antallet af korrekte og totale svar*/
 
 $SendChoices.click((e) => {
          e.preventDefault();

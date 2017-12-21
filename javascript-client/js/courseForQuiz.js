@@ -2,12 +2,13 @@ $(document).ready(() => {
     const $deleteUser = $("#deleteMyUserBtn");
     const currentUser = SDK.User.current();
     const $welcomeUser = $("#welcomeUser")
-
+    /*Velkomst side for normal bruger*/
 
     SDK.User.loadNav();
 
     $welcomeUser.html(`
     <h1>Velkommen, ${currentUser.username}</h1>`)
+    /*Alle fag printes ud, så brugeren kan vælge hvilket fag han/hin vil quizzes i*/
     SDK.Course.findAll((err, courses) => {
         if (err) throw err;
         courses.forEach(course => {
@@ -25,6 +26,8 @@ $(document).ready(() => {
         });
 
     });
+
+    /*Delete user knap, som fungerer på samme måde som delete admin*/
     $deleteUser.append(`
     <button class= "btn btn-default" data-id=${currentUser.userId}> Slet bruger </button> `)
 

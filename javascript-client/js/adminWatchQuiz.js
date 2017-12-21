@@ -3,6 +3,10 @@ $(document).ready(() => {
 
     SDK.User.loadNav();
 
+/*En side hvor administratoren kan se alle quizer i systemet.
+    * Disse appendes og ligges ind i en tabel. Der udover er der en modal til at slette quiz.
+    * Man indtaster blot ID, på den quiz man vil slette i modal'ens label.*/
+
 
     const quizbody = $('#quiz-tbody');
 

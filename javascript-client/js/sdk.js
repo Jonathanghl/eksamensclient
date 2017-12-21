@@ -1,4 +1,8 @@
 const SDK = {
+
+/*Dette er vores SDK klasse. Den er afgørende for vores program. Det er her der laves ajax kald
+* til serveren. Delt op i QUiz, question, course, choice, user og storage, som gør local sotrage brug
+* bart for os*/
   serverURL: "http://localhost:8080/api",
   request: (options, cb) => {
 

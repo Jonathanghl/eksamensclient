@@ -3,7 +3,9 @@ $(document).ready(() => {
   let courseId = SDK.Storage.load("watchQuizCourseId");
 
     SDK.User.loadNav();
-
+/*Dette er siden hvor man vælger Quiz.
+* Denne quiz' id bruges herefter til at sende dig videre
+* til selve quizzen.*/
 
 
     const $chooseQuizButtons = $("#ChooseQuizButtons");

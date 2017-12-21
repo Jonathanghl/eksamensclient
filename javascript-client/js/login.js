@@ -2,11 +2,13 @@ $(document).ready(() => {
 
   SDK.User.loadNav();
 
+  /*Knap til at åbne modal, som skal bruges til at oprette bruger*/
     $("#createUserBtn").click(() => {
        $("#createUserModal").modal("toggle");
     });
 
-
+/*Her oprettes brugeren. Når der trykkes gemmes værdier fra labels, og de
+* bruges til at kalde optret medtoden fra SDK'en*/
     $("#finishCreateUserBtn").click(()=> {
 
     const username = $("#inputCreateUserUsername").val();
@@ -25,6 +27,10 @@ $(document).ready(() => {
         });
 
     });
+
+    /* Login knap. tjekker om de to værdier fra labels
+    * stemmer overens med noget i databasen vha. serveren. Kalder login metode fra SDK
+    * og sender værdierne med.*/
 
   $("#login-button").click((e) => {
     e.preventDefault();

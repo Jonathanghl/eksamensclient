@@ -4,6 +4,9 @@ $(document).ready(() => {
 
     const body = $('#tbody');
 
+    /*En side hvor administratoren kan se alle brugere i systemet.
+    * Disse appendes og ligges ind i en tabel*/
+
     body.html("");
     SDK.User.findAll((err, users) => {
         users.forEach((user) => {
