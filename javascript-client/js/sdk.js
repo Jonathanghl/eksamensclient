@@ -333,19 +333,7 @@ const SDK = {
   },
 
 
-    encrypt: (encrypt) => {
-        if (encrypt !== undefined && encrypt.length !== 0) {
-            //Encrypt key
-            const key = ['K', 'O', 'C', 'H'];
-            let isEncrypted = "";
-            for (let i = 0; i < encrypt.length; i++) {
-                isEncrypted += (String.fromCharCode((encrypt.charAt(i)).charCodeAt(0) ^ (key[i % key.length]).charCodeAt(0)))
-            }
-            return isEncrypted;
-        } else {
-            return encrypt;
-        }
-    },
+
 
 
 

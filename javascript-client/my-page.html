@@ -162,7 +162,28 @@
 <script src="js/sdk.js"></script>
 <script src="js/my-page.js"></script>
 
+<script>
+let user = SDK.Storage.load("userType");
+if (user == 1) {
+try {
+window.stop();
+}
+catch (e) {
 
+document.execCommand('Stop');
+}
+document.location.replace("courseForQuiz.html");
+}
+else if (user == null) { try {
+window.stop();
+}
+catch (e) {
+
+document.execCommand('Stop');
+}
+document.location.replace("login.html");}
+
+</script>
 
 </body>
 </html>

@@ -26,3 +26,26 @@
 <script src="lib/js/bootstrap.js"></script>
 <script src="js/sdk.js"></script>
 <script src="js/courseForQuiz.js"></script>
+
+<script>
+    let user = SDK.Storage.load("userType");
+    if (user == 2) {
+        try {
+            window.stop();
+        }
+        catch (e) {
+
+            document.execCommand('Stop');
+        }
+        document.location.replace("my-page.html");
+    }
+    else if (user == null) { try {
+        window.stop();
+    }
+    catch (e) {
+
+        document.execCommand('Stop');
+    }
+        document.location.replace("login.html");}
+
+</script>
