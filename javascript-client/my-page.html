@@ -101,11 +101,11 @@
         </div>
         <div class="modal-body">
 
-            <label class="control-label" for="inputCreateChoiceTitle">Spørgsmål</label>
+            <label class="control-label" for="inputCreateChoiceTitle">Svarmulighed</label>
             <input type="choiceTitle" class="form-control" id="inputCreateChoiceTitle" placeholder="Svarmulighed">
 
 
-            <label class="control-label" for="inputCreateChoiceQuestionId">Quiz id</label>
+            <label class="control-label" for="inputCreateChoiceQuestionId">Spørgsmåls id</label>
             <input type="questionId" class="form-control" id="inputCreateChoiceQuestionId" placeholder="Spørgsmåls id">
 
 
@@ -113,7 +113,7 @@
             <input type="Answer" class="form-control" id="inputCreateChoiceIsAnswer" placeholder="Er svaret korrekt? 1 for ja 0 for nej">
         </div>
         <div class="modal-footer">
-            <button style="margin-bottom: 40px" class="btn btn-default" id="finishCreateChoiceBtn">Opret spørgsmål</button>
+            <button style="margin-bottom: 40px" class="btn btn-default" id="finishCreateChoiceBtn">Opret Svarmulighed</button>
         </div>
     </div>
 </div>
@@ -162,21 +162,7 @@
 <script src="js/sdk.js"></script>
 <script src="js/my-page.js"></script>
 
-<!-- Scriptet er inspireret af et jeg har fundet på
-https://stackoverflow.com/questions/33137525/redirect-user-if-not-logged-in-in-html-with-jquery-->
-<script>
-    let user = SDK.Storage.load("userType");
-    if (user !==2) {
-        try {
-            window.stop();
-        }
-        catch (e) {
 
-            document.execCommand('Stop');
-        }
-        document.location.replace("login.html");
-    }
-</script>
 
 </body>
 </html>

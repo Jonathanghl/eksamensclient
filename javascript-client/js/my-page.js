@@ -120,11 +120,11 @@ $(document).ready(() => {
 
         SDK.Choice.create(choiceTitle,questionId, answer, (err, data) => {
             if (err){
-                console.log("Det lykkedes ikke at oprette spørgsmålet ")
+                console.log("Det lykkedes ikke at oprette svarmuligheden ")
 
             }
             else {
-                alert("Spørgsmålet blev oprettet!")
+                alert("Svarmuligheden blev oprettet!")
             }
         });
 

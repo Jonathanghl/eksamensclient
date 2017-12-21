@@ -6,7 +6,8 @@ $(document).ready(() => {
 
     const $Qtbody = $("#q-tbody");
     const $SendChoices = $("#sendChoices");
-    let quizId = SDK.Storage.load('watchQuizCourseId');
+    const $quizName = $("#quizName")
+    let quizId = SDK.Storage.load('QuizId');
     let totAnswers = 0;
 
     SDK.Question.find(quizId, (err, questions) => {
@@ -14,9 +15,9 @@ $(document).ready(() => {
 
         questions.forEach(question => {
             getChoice(question.questionId);
-            $Qtbody.append(`<form id=${question.questionId}>${question.questionTitle}
-            <br>
-            </form> `);
+            $Qtbody.append(` <br><h4>Spørgsmål ${totAnswers + 1}</h4> <h5 id=${question.questionId}>${question.questionTitle}
+            <br></h5>
+             `);
 
          totAnswers++;
         console.log(+totAnswers);
@@ -26,14 +27,14 @@ $(document).ready(() => {
 
 
 
-     function getChoice (id) {
-        SDK.Choice.findAll(id, (err, choice) => {
+     function getChoice (qId) {
+        SDK.Choice.findAll(qId, (err, choice) => {
             if (err) throw err;
-            let list = $("#"+id);
+            let liste = $("#"+qId);
             choice.forEach(choice => {
 
-                list.append(`
-             <input type="radio" name=${id} id=${choice.choiceId} value=${choice.answer}>${choice.choiceTitle}
+                liste.append(`
+             <input type="radio" name=${qId} id=${choice.choiceId} value=${choice.answer}>${choice.choiceTitle} <br>
             
             `);
             });
@@ -51,6 +52,7 @@ $SendChoices.click((e) => {
     }
     window.alert("Du har "+corAnswers+" rigtige svar, ud af " +totAnswers);
 });
+
 
 
 });
